@@ -2,7 +2,7 @@ var assert = require('assert');
 var should = require('should');
 
 // load problem library
-var problems = require('maths-problems');
+var problems = require('../problems');
 
 // Simple addition problem with random numbers between 1 and 10
 var additionProblem = {
@@ -30,6 +30,23 @@ describe('Problems', function () {
         questions.length.should.equal(number);
       }
     });
+  });
 
+  describe('#markQuestion(question, problem)', function () {
+    it('should reject an incorrect answer', function () {
+      var question = problems.generateQuestions([additionProblem], [1])[0];
+      question.userAnswer = [];
+      question.userAnswer[0] = 3000;
+      var result = problems.markQuestion(question, additionProblem);
+      result.should.have.property('correct', false);
+      result.answer[0].should.be.exactly(question.variables[0].value + question.variables[1].value);
+    });
+    it('should accept a correct answer', function () {
+      var question = problems.generateQuestions([additionProblem], [1])[0];
+      question.userAnswer = [];
+      question.userAnswer[0] = question.variables[0].value + question.variables[1].value;
+      var result = problems.markQuestion(question, additionProblem);
+      result.should.have.property('correct', true);
+    });
   })
-})
+});
