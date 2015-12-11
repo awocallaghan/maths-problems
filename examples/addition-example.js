@@ -28,13 +28,13 @@ askQuestion(total, correct);
 
 function askQuestion (total, correct) {
   // generate a random question using the defined problem
-  var question = problems.generateQuestions(additionProblem, 1)[0];
+  var question = problems.generateQuestions([additionProblem], [1])[0];
   console.log("** Question " + (total + 1));
   console.log(" - " + question.text);
 
   prompt.start();
   prompt.get(answerSchema, function (err, result) {
-    if (result.answer == "exit") {
+    if (!result || result.answer == "exit") {
       return process.exit(0);
     }
     question.userAnswer = [];
