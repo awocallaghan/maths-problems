@@ -5,6 +5,57 @@ maths-problems allows you to generate random maths questions with answers that c
 
 See examples/addition-example.js for a basic example usage.
 
+Methods
+--
+
+**generateQuestions (**_[problems]_, _[numbers]_**)**
+
+_[problems]_ => an array of problems to use to generate questions.
+
+_[numbers]_ => an array of integers defining how many questions to generate for each problem.
+
+**Returns** _[questions]_ an array of generated questions.
+
+_Example:_
+
+    var problems = require('maths-problems');
+
+    var additionProblem = {
+      "question" : "What is {x=randomInt(1,10)} + {y=randomInt(1,10)}?",
+      "answer" : ["{x}+{y}"],
+      "answerFormat" : "0"
+    };
+    var subtractionProblem = {
+      "question" : "What is {x=randomInt(1,10)} - {y=randomInt(1,10)}?",
+      "answer" : ["{x}-{y}"],
+      "answerFormat" : "0"
+    };
+
+    // Generate 5 addition questions and 5 subtraction questions
+    var questions = problems.generateQuestions([additionProblem, subtractionProblem], [5,5]);
+
+**markQuestion (**_question_, _problem_**)**
+
+_question_ => the question object with an extra field - an array called "userAnswer" containing the user's answer for each part of the question
+_problem_ => the problem used to generate the question
+
+**Returns** a  _[result]_ object with a boolean property "correct" and an array "answer" containing the correct answers.
+
+_Example:_
+
+    var questions = problems.generateQuestions([additionProblem, subtractionProblem], [5,5]);
+    // Continuing from previous generate example
+
+    ... obtain an answer from the user and store it in question.userAnswer[] ...
+
+    // For example marking an additionProblem
+    var result = problems.markQuestion(question, additionProblem);
+    if (result.correct) {
+      console.log("Correct!");
+    } else {
+      console.log("Incorrect! Correct answer: " + result.answer[0]);
+    }
+
 Problems
 --
     problemSchema = {
