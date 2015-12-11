@@ -1,11 +1,11 @@
 {
   "name": "maths-problems",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Randomly generated maths questions",
   "main": "problems.js",
-  "repository" : {
-    "type" : "git",
-    "url" : "https://github.com/awocallaghan/maths-problems.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/awocallaghan/maths-problems.git"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
