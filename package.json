@@ -1,6 +1,6 @@
 {
   "name": "maths-problems",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Randomly generated maths questions",
   "main": "problems.js",
   "repository": {
