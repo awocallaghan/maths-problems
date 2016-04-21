@@ -1,12 +1,12 @@
-var problems = require('../problems');
+var problems = require('../src/problems');
 var prompt = require('prompt');
 
 // Define a simple addition problem
-var additionProblem = {
-  "question" : "What is {x=randomInt(1,10)} + {y=randomInt(1,10)}?",
-  "answer" : ["{x}+{y}"],
-  "answerFormat" : "0"
-};
+var additionProblem = new problems.models.Problem(
+  "What is {x=randomInt(1,10)} + {y=randomInt(1,10)}?",
+  ["{x}+{y}"],
+  "0"
+);
 
 var answerSchema = {
   properties: {

@@ -2,7 +2,7 @@ var assert = require('assert');
 var should = require('should');
 
 // load problem library
-var problems = require('../problems');
+var problems = require('../src/problems');
 
 // Simple addition problem with random numbers between 1 and 10
 var additionProblem = {
