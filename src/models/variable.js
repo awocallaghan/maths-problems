@@ -1,8 +1,8 @@
 'use strict';
 
-module.exports = class Variable {
+export default class Variable {
   constructor(name, value) {
     this.name = name;
     this.value = value;
   }
-};
+}

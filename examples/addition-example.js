@@ -1,4 +1,4 @@
-var problems = require('../src/problems');
+var problems = require('../lib/problems');
 var prompt = require('prompt');
 
 // Define a simple addition problem

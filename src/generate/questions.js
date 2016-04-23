@@ -4,27 +4,8 @@
   * Generating questions from problems
   */
 
-var math = module.parent.exports.math;
-
-// Export functions
-module.exports.functions = [
-  {
-    name: 'generateQuestions',
-    function: generateQuestions
-  }
-];
-
-// Import models
-var Question = module.parent.exports.models.Question;
-var Variable = module.parent.exports.models.Variable;
-
-// Import code
-var generateVariables;
-var insertVariables;
-module.exports.import = function () {
-  generateVariables = module.parent.exports.generateVariables;
-  insertVariables = module.parent.exports.insertVariables;
-};
+import {Question, Variable} from '../models';
+import {generateVariables, insertVariables} from './variables';
 
 /**
   * generateQuestions from an array of problems
@@ -32,7 +13,7 @@ module.exports.import = function () {
   * @param numbers - array of integers = number of questions to generate for each problem
   * @return array of Questions
 **/
-function generateQuestions(problems, numbers) {
+export function generateQuestions(problems, numbers) {
   if (problems == null) {
     throw "Invalid parameters <generateQuestions> => problems are undefined";
   }
