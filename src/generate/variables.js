@@ -1,29 +1,13 @@
-// Export functions
-module.exports.functions = [
-  {
-    name: 'generateVariables',
-    function: generateVariables
-  },
-  {
-    name: 'insertVariables',
-    function: insertVariables
-  }
-];
-
-var math = module.parent.exports.math;
-
-// Import models
-var Variable = module.parent.exports.models.Variable;
-
-// Import code
-module.exports.import = function () {};
+'use strict';
+import {Variable} from '../models';
+import math from 'mathjs';
 
 /**
   * generateVariables for a question
   * @param question - question text string
   * @return array of variables
 **/
-function generateVariables (question) {
+export function generateVariables(question) {
   var variables = [];
   var variableDefinitions = question.match(/{.+?}/g);
   for (var i = 0; i < variableDefinitions.length; i++) {
@@ -40,7 +24,7 @@ function generateVariables (question) {
   * @param variables - array of generated variables
   * @return question - question text with variables inserted
 **/
-function insertVariables(questionText, variables) {
+export function insertVariables(questionText, variables) {
   var chars = questionText.split("");
   var found = false;
   var name = null;
