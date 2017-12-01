@@ -62,4 +62,29 @@ describe('problems.models.ProblemSchema', () => {
             schema.answerFormat.should.equal('');
         });
     });
+    describe('#generateVariables()', () => {
+        it('should generate the correct number of variables', () => {
+            let variables = [
+                { name: 'x', value: 2, },
+                { name: 'y', value: 10, },
+                { name: 'z', value: -25, },
+                { name: 'a', value: 4 },
+                { name: 'b', value: -4 },
+                { name: 'c', value: 493349 }
+            ];
+            for (let i = 0; i < variables.length; i++) {
+                // Get subset of variables
+                let vars = variables.slice(0, i);
+                // Create formula which defines all variables
+                let formula = '';
+                for (let j = 0; j < vars.length; j++) {
+                    formula += ` {${vars[j].name}=${vars[j].value}}`;
+                }
+                // Create schema + generate variables
+                let schema = new ProblemSchema(formula, null, null);
+                let generatedVariables = schema.generateVariables();
+                generatedVariables.length.should.equal(vars.length);
+            }
+        });
+    });
 });
