@@ -7,17 +7,13 @@
  */
 
 /* Import and export data models */
-import {Problem, Question, Variable, Result} from './models';
-export const models = {
-  Problem: Problem,
-  Question: Question,
-  Variable: Variable,
-  Result: Result,
-}
+import models from './models';
+export {models};
 
-/* Export functions */
-import {generateQuestions} from './generate/questions';
-import {markQuestion} from './marking/marker';
+/* Export generator library */
+import generator from './generator';
+export {generator}
 
-export {generateQuestions}
-export {markQuestion}
+/* Export marker library */
+import {marker} from './marker';
+export {marker}
