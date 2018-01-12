@@ -1,6 +1,6 @@
 {
   "name": "maths-problems",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Randomly generate maths questions from a general problem template",
   "main": "lib/problems.js",
   "repository": {
@@ -15,7 +15,7 @@
   "author": "Alex O'Callaghan <aocallaghan@outlook.com> (http://alexocallaghan.com)",
   "license": "ISC",
   "dependencies": {
-    "mathjs": "^2.5.0"
+    "mathjs": "^2.7.0"
   },
   "devDependencies": {
     "babel-cli": "^6.7.7",
